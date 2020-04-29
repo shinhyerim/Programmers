@@ -1,2 +1,7 @@
-# Programmers
-- 프로그래머스의 문제들을 풀고 기록합니다.
+# To-do-List 만들기
+
+### Vue.js
+- SPA Framework
+
+### 목적
+- Vue.js를 사용해보고 이해하기
