@@ -1,4 +1,4 @@
-# To-do-List 만들기
+# To-do List 만들기
 
 ### Vue.js
 - SPA Framework
