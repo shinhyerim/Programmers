@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Vue.js list 출력하기</title>
+</head>
+<body>
+<!-- vue.js는  데이터가 어떻게 화면에 보여줄지 정의해놓으면 데이터변경은 자동으로 감지하여 알아서 업데이트를 시켜줌 -->
+
+<!-- vue.js는 태그를 만들어서 mount해서 사용  -->
+<div id="app">
+	<!-- vue.js에서 반복문 사용하기 : v-for="항목을 담을 변수 in 반복문에 사용할 배열" -->
+	<ul style="list-style:none;">
+	<!-- 2개 이상의 태그를 반복하여 사용한다면 template을 사용, template안에 li태그로 나눠서 출력  -->
+		<template v-for="item in items">
+			<li ><!-- li에 v-for를 사용하는 경우:items 배열에서 항목을 하나씩 꺼내와 꺼내온 각 항목을 사용할 수 있는 li태그를 출력함 -->
+				<!-- img 태그 추가하기, 태그 attribute에 변수값을 대입시키려면 머스타치를 사용하지 않고, attribute앞에 콜론(:) 입력 후 변수명 입력 -->
+				<img :src="item.image">
+			</li>
+			<li>
+				{{ item.title }}
+			</li>
+		</template>
+	</ul>
+</div>
+<!-- vue.js 사용  -->
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script>
+	// Vue 인스턴스를 변수에 담으면 인스턴스 내부 접근 가능 : items에 값 추가하기 - 그다지 바람직한 접근은 아님
+	let app = new Vue({
+		el: '#app',
+		data(){
+			return{
+				items:[
+					{
+						id:1,
+						image:'https://picsum.photos/210/118/?image=1',
+						title:'컴퓨터'
+					},
+					{
+						id:2,
+						image:'https://picsum.photos/210/118/?image=100',
+						title: '해변'
+					},
+					{
+						id:3,
+						image:'https://picsum.photos/210/118/?image=160',
+						title: '휴대폰'
+					},
+					{
+						id:4,
+						image:'https://picsum.photos/210/118/?image=200',
+						title: '황소'
+					}
+				]
+			};
+		}
+
+	})
+</script>
+</body>
+</html>
