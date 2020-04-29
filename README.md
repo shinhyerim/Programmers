@@ -15,6 +15,10 @@
 1. 2020.04.29.
 - 사용 Tool : Eclipse
 - CDN 방식을 이용해서 Vue.js 사용하기
+```html
+<!-- development version, includes helpful console warnings -->
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+```
 - Vue Devtools를 이용하여 value값 확인하기
 
 
