@@ -141,10 +141,10 @@ let app = new Vue({
 * * *
 - Component
 - Vue.js에서 컴포넌트를 사용하면 반복되는 태그 묶음을 한 곳에 모아 관리할 수 있고, 여러 곳에서 사용할 수 있음
-```javscript
+```html
 <div id="app">
 	<div class="container mx-auto mt-10">
-		<div class="flext">
+		<div class="flex">
 			<product
 				image="https://picsum.photos/300/200?image=0"
 				avartor="https://picsum.photos/30/30?image=80"
@@ -173,7 +173,7 @@ let app = new Vue({
 	</div>
 </div>
 ```
-```javscript
+```javascript
 <script>
 Vue.component('product',{
 	// 설정값 - json형식
