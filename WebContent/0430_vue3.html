@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Vue.js - 메소드 정의 및 이벤트 핸들링</title>
+<style>
+	.dropdown ul{
+	display:none;
+	list-style:none;
+	margin: 0;
+	border: 1px solid black;
+	padding: 10px;
+	width: 200px;
+	}
+	
+	.dropdown.on ul{
+		display: block;
+	}
+</style>
+</head>
+<body>
+<div id="app">
+<!-- 이벤트 처리는 'v-on:이벤트명' 형식으로 기존에 사용하던 이벤트를 받아올 수 있으며, 
+	  단축 표현 형식으로 '@이벤트명'으로 메소드와 연결하여 사용 -->
+	<button type="button" @click="btnClick">버튼</button>
+	<div :class="[dropdown,toggle]">
+		<ul>
+			<li><a href="#">메뉴1</a></li>
+			<li><a href="#">메뉴2</a></li>
+		</ul>
+	</div>
+</div>
+<!-- CDN방식으로 Vue.js 사용하기  -->
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script>
+let app = new Vue({
+		el : '#app',
+		data(){
+			return{
+				id: 1,
+				image : 'https://picsum.photos/200/200/?image=353',
+				style:{
+					background: 'red',
+				},
+				fontStyle:{
+					fontSize: '10px',
+					fontFamily: 'dotum'
+				},
+				dropdown: 'dropdown',
+				toggle:{
+					on: false
+				}
+			};
+		},
+		/* vue.js는 내부에서 사용할 함수를 methods라는 json객체를 만들어 선언하면 됨 */
+		methods:{
+			btnClick(){
+				this.toggle.on = ! this.toggle.on; // 메소드를 실행할 때마다 toggle의 on을 값을 true,false로 변경해줌
+			}
+		}
+	});
+	
+</script>
+</body>
+</html>

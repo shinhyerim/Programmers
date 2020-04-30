@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Vue.js - Component 사용하기</title>
+</head>
+<body>
+<!-- vue.js의 Component는 태그들을 모아 하나의 사용자 custom태그를 만드는 기능
+	- 사용방법
+	Vue.component('태그명',{
+		설정값을 json인자로 넘겨줌
+	});
+	컴포넌트를 사용하면 반복되는 태그 묶음을 한 곳에 모아 관리할 수 있고, 여러 곳에서 사용할 수 있음 -->
+<div id="app">
+	<div class="container mx-auto mt-10">
+		<div class="flext">
+			<product
+				image="https://picsum.photos/300/200?image=0"
+				avartor="https://picsum.photos/30/30?image=80"
+				title="노트북"
+				description="노트북 상품 설명"
+			></product>
+			<product
+				image="https://picsum.photos/300/200?image=3"
+				avartor="https://picsum.photos/30/30?image=100"
+				title="아이폰"
+				description="아이폰 상품 설명"
+			></product>
+			<product
+				image="https://picsum.photos/300/200?image=23"
+				avartor="https://picsum.photos/30/30?image=110"
+				title="포크"
+				description="포크 상품 설명"
+			></product>
+			<product
+				image="https://picsum.photos/300/200?image=24"
+				avartor="https://picsum.photos/30/30?image=70"
+				title="책"
+				description="책 상품 설명"
+			></product>
+		</div>
+	</div>
+</div>
+<!-- CDN방식으로 Vue.js 사용하기  -->
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script>
+Vue.component('product',{
+	// 설정값 - json형식
+	props: ['image','title','description','avartor'],
+	template: `
+	<div class="flex-1 px-5">
+		<div class="max-w-sm rounded overflow-hidden shadow-lg">
+			<img class="w-full" :src="image">
+			<div class="px-6 py-4">
+				<div class="relative">
+					<div class="absolute pin-l pin-t bg-white border border-pear-dark rounded-full" style="...">
+						<img class="block rounded-full" :src="avartor" width="30">
+					</div>
+				</div>
+				<div class="font bold text-xl mb-2">{{ title }}</div>
+				<p class="text-grey-darker text-base">
+					{{ description }}
+				</p>
+			</div>
+		</div>
+	</div>
+	`
+	
+});
+
+let app = new Vue({
+	el: '#app',
+	data(){
+		return{
+			
+		};
+	},
+	methods:{
+		
+	}
+});
+</script>
+</body>
+</html>
