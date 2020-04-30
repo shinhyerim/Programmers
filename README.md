@@ -69,7 +69,7 @@
 	</div>
 </div>
 ```
-```javscript
+```javascript
 <script>
 let app = new Vue({
 		el : '#app',
@@ -141,7 +141,7 @@ let app = new Vue({
 * * *
 - Component
 - Vue.js에서 컴포넌트를 사용하면 반복되는 태그 묶음을 한 곳에 모아 관리할 수 있고, 여러 곳에서 사용할 수 있음
-```html
+```javascript
 <div id="app">
 	<div class="container mx-auto mt-10">
 		<div class="flex">
