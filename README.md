@@ -1,7 +1,8 @@
 # To-do List 만들기
 
 ### Vue.js
-- SPA Framework
+- SPA(Single Page Application) Framework
+- 백엔드 개발 트렌드인 MVC패턴에서 뷰를 분리하여 하나의 어플리케이션으로 만들고 백엔드는 API형태로 동작하는 것 > Vue CLI는 이런 환경을 만들어주는 도구임
 
 * * *
 
@@ -199,3 +200,23 @@ Vue.component('product',{
 });
 </script>
 ```
+
+3. 2020.05.01.
+- CDN방식이 아닌 CLI방식을 이용하여 Vue.js 사용하기
+
+- npm : JavaScript 패키지 설치를 도와주는 Tool ( java의 maven과 비슷함)
+- node.js를 사용한 개발에는 필수이며, 웹 프론트엔드 개발에서도 웹팩을 이용하여 javascript 코드 번들링을 하는 등 다양한 용도로 사용
+- npm 사용 전 node.js를 먼저 설치
+
+- node.js 설치 후 cmd 창에 아래와 같이 입력 후 설치
+```javascript
+npm install -g @vue/cli
+```
+- -g 옵션 : 사용자 홈 디렉토리 안에 설치하는 옵션, node.js 설치 시 g옵션으로 설치하는 경로가 추가되어 어디서든 실행 가능
+
+- Vue cli 사용
+- v-for 복습
+- class의 getter와 같은 동작을 하는 computed
+- component 분리 방법
+- component에서 이벤트를 발생시키는 방법
+
