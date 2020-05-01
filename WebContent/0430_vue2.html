@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Vue.js - 메소드 선언 방법과 이벤트 바인딩</title>
+</head>
+<body>
+<div id="app">
+<!-- v-on을 이용하여 이벤트를 받아오는 방법
+	v-on:이벤트명 = "" : ""안이 javascript영역이 되어 연산작업을 하거나 메소드를 호출가능
+	※ 연산작업을 하게 되는 경우 가독성이 떨어져 보통 메소드를 선언하여 연결해줌
+	'v-on:이벤트명'은 '@이벤트명'으로 단축하여 사용 가능 
+	
+	특정 키가 입력되었을 때만 메소드가 실행될 수 있도록 할 수도 있음-->
+	<button type="button" @click="add">더하기</button>
+	{{ counter }}
+	
+	<!-- @keyup.enter : enter키에만 동작하도록 설정  -->
+	<input type="text" @keyup.enter="keyUp">
+</div>
+
+<!-- CDN 방식으로 Vue.js 사용하기  -->
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script>
+let app = new Vue({
+	el: '#app',
+	data(){
+		return{
+			counter: 0
+		};
+	},
+	methods:{
+		// '=>' 사용 불가
+		add(){
+			this.counter++;
+		},
+		keyUp(ev){
+			if(ev.keyCode != 13){
+				console.log('엔터키가 아님');
+				return;
+			}
+			
+			console.log('엔터키가 눌림');
+		}
+	}
+});
+
+/* 함수와 메소드의 차이
+1. 함수
+function test(){
+	
+}
+2. 메소드 : json객체나 클래스 등에 속해있는 함수
+- 메소드 표현방식 1
+class testClass{
+	test(){
+		
+	}
+}
+let obejct = {
+		- 2
+		test: function(){
+			
+		}
+		- 3
+		test(){
+			
+		}
+		- 4
+		test: () => {
+			
+		}
+} */
+</script>
+</body>
+</html>

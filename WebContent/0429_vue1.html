@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Vue.js 사용해보기</title>
+</head>
+<body>
+<!-- vue.js는 태그를 만들어서 mount해서 사용  -->
+<div id="app">
+							   <!-- v-model: vue.js에서 제공하는 attribute으로 변수명을 지정해주면 자동으로 input태그의 value값과 script의 변수값이 동기화 됨 -->
+	<input type="text" id="user_id" v-model="userID">
+	<input type="password" id="user_password" v-model="userPassword">
+	<button type="button">로그인</button>
+	<!-- Vue의 userID, userPassword 출력하기 '{{ 변수명 }}' {{:머스타치 형식을 사용-->
+	<br />
+	아이디 : {{ userID }}
+	<br />
+	비밀번호 : {{ userPassword }}
+</div>
+<!-- vue.js 사용  -->
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script>
+	// vue.js는 new Vue로 인스턴스를 만들어 사용한다.
+	new Vue({
+		// 뷰 인스턴스 생성, app에 mount시킴
+		el: '#app',
+		// 외부에서 사용할 데이터는 data메소드에 정의하여 사용
+		// = 뷰 인스턴스는 data 메소드 안에 인스턴스 내부에서 사용할 데이터 정의 가능
+		data(){
+			return{
+				userID: '',
+				userPassword: ''
+			}
+		}
+	})
+</script>
+</body>
+</html>
