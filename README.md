@@ -2,7 +2,8 @@
 
 ### Vue.js
 - SPA(Single Page Application) Framework
-- 백엔드 개발 트렌드인 MVC패턴에서 뷰를 분리하여 하나의 어플리케이션으로 만들고 백엔드는 API형태로 동작하는 것 > Vue CLI는 이런 환경을 만들어주는 도구임
+- 백엔드 개발 트렌드인 MVC패턴에서 뷰를 분리하여 하나의 어플리케이션으로 만들고 백엔드는 API형태로 동작하는 것
+	Vue CLI는 이런 환경을 만들어주는 도구임
 
 * * *
 
@@ -202,21 +203,73 @@ Vue.component('product',{
 ```
 
 3. 2020.05.01.
-- CDN방식이 아닌 CLI방식을 이용하여 Vue.js 사용하기
-
-- npm : JavaScript 패키지 설치를 도와주는 Tool ( java의 maven과 비슷함)
-- node.js를 사용한 개발에는 필수이며, 웹 프론트엔드 개발에서도 웹팩을 이용하여 javascript 코드 번들링을 하는 등 다양한 용도로 사용
-- npm 사용 전 node.js를 먼저 설치
-
-- node.js 설치 후 cmd 창에 아래와 같이 입력 후 설치
-```javascript
+- CDN방식이 아닌 CLI방식을 이용하여 Vue js 사용하기
+- npm 사용 전 nodejs를 먼저 설치해야함 -> nodejs.org에서 다운로드 가능
+	npm? JavaScript 패키지 설치를 도와주는 Tool (java의 maven과 비슷함)
+- node.js 설치 후 cmd창에 아래 명령어 입력
+	-g 옵션 : 사용자 홈 디렉토리 안에 설치하는 옵션, nodejs 설치 시 g옵션으로 설치하는 경로가 추가됨
+```
 npm install -g @vue/cli
 ```
-- -g 옵션 : 사용자 홈 디렉토리 안에 설치하는 옵션, node.js 설치 시 g옵션으로 설치하는 경로가 추가되어 어디서든 실행 가능
+- Eclipse에서 Vue js를 사용할 때는 Help > Eclipse Marketplace > Vue 검색 후 설치
 
-- Vue cli 사용
+
 - v-for 복습
+	v-for를 사용할 때 v-bind:key를 추가하지 않으면
+	'Expected 'v-bind:key' directive to use the variables which are defined by the 'v-for' directive  vue/valid-v-for' 오류 발생!
+```javscript
+<template v-for="todo in activeTodoList"><!-- 변수처럼 사용 가능 -->
+    <todo v-bind:key="todo"
+       :label="todo.label" 
+       @componentClick="toggleTodoState(todo)"
+    />
+</template>
+```
 - class의 getter와 같은 동작을 하는 computed
+```javascript
+...
+,computed{
+
+}
+```
 - component 분리 방법
-- component에서 이벤트를 발생시키는 방법
+```javascript
+<!-- 1. src\component에 새로운 Vue 파일 생성 후 코드 분리-->
+<template>
+	<button class="list-group-item text-left" :key="todo" @click="clickButton">
+		{{ label }}<!-- 출력 값을 todo.label에서 label로 변경 -->
+    </button>
+</template>
+<script>
+	export default {
+		props:['label'],
+		methods:{
+			clickButton(){
+				//$emit 메소드로 이벤트 발생시켜줌
+				this.$emit('componentClick');
+			}
+		}
+	};
+</script>
+```
+```javascript
+<script>
+// 2. component에 생성한 vue파일 import
+import todo from './components/todo';
+
+...
+
+export default {
+  
+  ...
+  
+  // 3. import한 todo파일 components에 추가
+  components: {
+    todo
+  }
+}
+</script>
+```
+
+- component에서 이벤트를 발생시키는 방법: $emit 사용
 
