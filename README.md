@@ -297,5 +297,3 @@ export default {
 ```
 
 - component에서 이벤트를 발생시키는 방법: $emit 사용
-
->>>>>>> a273d1b21772181197cf17ad6d20ae7d822d9475
